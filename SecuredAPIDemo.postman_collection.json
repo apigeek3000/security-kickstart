@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "b08e4249-c461-40ef-a004-ee005d011633",
+		"name": "SecuredAPIDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21329782"
+	},
+	"item": [
+		{
+			"name": "Retreive Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{api_domain}}/oauth/client_credential/accesstoken?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"oauth",
+						"client_credential",
+						"accesstoken"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Use Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api_domain}}/v1/secured",
+					"protocol": "https",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"v1",
+						"secured"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Use Token JSON Good",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"field1\": \"\",\n    \"field2\": \"\",\n    \"field3\": \"\",\n    \"field4\": \"\",\n    \"field5\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api_domain}}/v1/secured",
+					"protocol": "https",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"v1",
+						"secured"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Use Token JSON Bad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"field1\": \"\",\n    \"field2\": \"\",\n    \"field3\": \"\",\n    \"field4\": \"\",\n    \"field5\": \"\",\n    \"field6\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api_domain}}/v1/secured",
+					"protocol": "https",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"v1",
+						"secured"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Use Token SQL Good",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api_domain}}/v1/secured?studentId=42",
+					"protocol": "https",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"v1",
+						"secured"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "42"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Use Token SQL Bad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api_domain}}/v1/secured?studentId=42;drop table Student;",
+					"protocol": "https",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"v1",
+						"secured"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "42;drop table Student;"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Use Token SOAP",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{api_domain}}/v1/secured/soap",
+					"protocol": "https",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"v1",
+						"secured",
+						"soap"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_domain",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "oauth_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
