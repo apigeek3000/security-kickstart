@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="12" name="secured">
+  <DisplayName/>
+  <Description>Security Demo Proxy</Description>
+  <CreatedAt>1668181319650</CreatedAt>
+  <LastModifiedAt>1668181319650</LastModifiedAt>
+  <BasePaths>/v1/secured</BasePaths>
+  <Policies>
+    <Policy>add-cors</Policy>
+    <Policy>JSON-Threat-Protection</Policy>
+    <Policy>SQL-Injection-Protection</Policy>
+    <Policy>Set-SOAP-Payload</Policy>
+    <Policy>Get-SOAP-Creds</Policy>
+    <Policy>fc-oauth-quota</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="oauth">
+  <DisplayName>oauth</DisplayName>
+  <Description>An API proxy that enforces OAuth 2.0 Client Credential Grant flow</Description>
+  <CreatedAt>1665604255453</CreatedAt>
+  <LastModifiedAt>1665604255453</LastModifiedAt>
+  <BasePaths>/oauth/client_credential</BasePaths>
+  <Policies>
+    <Policy>GenerateAccessTokenClient</Policy>
+    <Policy>RefreshAccessToken</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

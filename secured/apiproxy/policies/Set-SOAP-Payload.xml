@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="Set-SOAP-Payload">
+  <DisplayName>Set SOAP Payload</DisplayName>
+  <Properties/>
+  <Set>
+    <!-- Example payload pulled from https://github.com/DinoChiesa/Apigee-Java-WsSec-Username-Token -->
+    <Payload>
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wssec="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns1="http://ws.example.com/">
+        <soapenv:Header>
+          <wssec:Security soapenv:mustUnderstand="1">
+            <wssec:UsernameToken wsu:Id="UsernameToken-17236a97-4ece-4c24-868f-5e23a3866444">
+              <wssec:Username>{private.soapUsername}</wssec:Username>
+              <wssec:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{private.soapPassword}</wssec:Password>
+              <wsu:Created>2020-02-22T01:48:43Z</wsu:Created>
+              <wssec:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">+GYBJvPvSFHxZRdH3G8Rxe+LKWs=</wssec:Nonce>
+            </wssec:UsernameToken>
+          </wssec:Security>
+        </soapenv:Header>
+        <soapenv:Body>
+          <ns1:sumResponse>
+            <ns1:return>9</ns1:return>
+          </ns1:sumResponse>
+        </soapenv:Body>
+      </soapenv:Envelope>
+    </Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

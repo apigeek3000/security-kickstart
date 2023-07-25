@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations continueOnError="false" enabled="true" name="Get-SOAP-Creds" mapIdentifier="SOAP-Creds">
+  <DisplayName>Get SOAP Creds</DisplayName>
+  <Properties/>
+  <ExclusiveCache>false</ExclusiveCache>
+  <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+  <Get assignTo="private.soapUsername" index="1">
+    <Key>
+      <Parameter>soapUsername</Parameter>
+    </Key>
+  </Get>
+  <Get assignTo="private.soapPassword" index="1">
+    <Key>
+      <Parameter>soapPassword</Parameter>
+    </Key>
+  </Get>
+  <Scope>environment</Scope>
+</KeyValueMapOperations>

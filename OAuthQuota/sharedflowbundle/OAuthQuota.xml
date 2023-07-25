@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="OAuthQuota">
+  <DisplayName/>
+  <Description>Verifies an OAuth token, imposes a product quota, and then removes the OAuth token from the header</Description>
+  <CreatedAt>1690231559689</CreatedAt>
+  <LastModifiedAt>1690231742735</LastModifiedAt>
+  <SharedFlows>
+    <SharedFlow>default</SharedFlow>
+  </SharedFlows>
+  <subType>SharedFlow</subType>
+  <Policies>
+    <Policy>impose-quota</Policy>
+    <Policy>verify-oauth-v2-access-token</Policy>
+    <Policy>remove-header-authorization</Policy>
+  </Policies>
+</SharedFlowBundle>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Quota continueOnError="false" enabled="true" name="impose-quota">
+  <DisplayName>Impose Quota</DisplayName>
+  <Properties/>
+  <Allow count="2000" countRef="apiproduct.developer.quota.limit"/>
+  <Interval ref="apiproduct.developer.quota.interval">1</Interval>
+  <TimeUnit ref="apiproduct.developer.quota.timeunit">minute</TimeUnit>
+  <Distributed>true</Distributed>
+  <Synchronous>true</Synchronous>
+</Quota>

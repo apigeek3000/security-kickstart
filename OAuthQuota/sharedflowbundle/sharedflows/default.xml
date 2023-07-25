@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+  <Step>
+    <Name>verify-oauth-v2-access-token</Name>
+  </Step>
+  <Step>
+    <Name>impose-quota</Name>
+  </Step>
+  <Step>
+    <Name>remove-header-authorization</Name>
+  </Step>
+</SharedFlow>
